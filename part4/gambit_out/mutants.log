@@ -1,0 +1,95 @@
+1,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,16:51, ** ,+
+2,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,16:51, ** ,-
+3,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,16:51, ** ,*
+4,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,16:51, ** ,%
+5,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,16:49,10 ** 3,3 ** 10
+6,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,33:9,"require(unlocked == 1, ""UniswapV2: LOCKED"")",assert(true)
+7,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,33:17,unlocked == 1,true
+8,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,33:17,unlocked == 1,false
+9,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,34:9,unlocked = 0,assert(true)
+10,AssignmentMutation,src/contracts/uni-v2/UniswapV2Pair.sol,34:20,0,1
+11,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,36:9,unlocked = 1,assert(true)
+12,AssignmentMutation,src/contracts/uni-v2/UniswapV2Pair.sol,36:20,1,0
+13,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,167:9,"require(amount0Out > 0 || amount1Out > 0, ""UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT"")",assert(true)
+14,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,167:17,amount0Out > 0 || amount1Out > 0,true
+15,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,167:17,amount0Out > 0 || amount1Out > 0,false
+16,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,167:17,amount0Out > 0,0 > amount0Out
+17,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,167:35,amount1Out > 0,0 > amount1Out
+18,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,169:9,"require(amount0Out < _reserve0 && amount1Out < _reserve1, ""UniswapV2: INSUFFICIENT_LIQUIDITY"")",assert(true)
+19,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,169:17,amount0Out < _reserve0 && amount1Out < _reserve1,true
+20,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,169:17,amount0Out < _reserve0 && amount1Out < _reserve1,false
+21,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,169:17,amount0Out < _reserve0,_reserve0 < amount0Out
+22,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,169:43,amount1Out < _reserve1,_reserve1 < amount1Out
+23,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,176:13,"require(to != _token0 && to != _token1, ""UniswapV2: INVALID_TO"")",assert(true)
+24,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,176:21,to != _token0 && to != _token1,true
+25,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,176:21,to != _token0 && to != _token1,false
+26,IfStatementMutation,src/contracts/uni-v2/UniswapV2Pair.sol,177:17,amount0Out > 0,true
+27,IfStatementMutation,src/contracts/uni-v2/UniswapV2Pair.sol,177:17,amount0Out > 0,false
+28,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,177:17,amount0Out > 0,0 > amount0Out
+29,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,177:33,"_safeTransfer(_token0, to, amount0Out)",assert(true)
+30,IfStatementMutation,src/contracts/uni-v2/UniswapV2Pair.sol,178:17,amount1Out > 0,true
+31,IfStatementMutation,src/contracts/uni-v2/UniswapV2Pair.sol,178:17,amount1Out > 0,false
+32,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,178:17,amount1Out > 0,0 > amount1Out
+33,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,178:33,"_safeTransfer(_token1, to, amount1Out)",assert(true)
+34,IfStatementMutation,src/contracts/uni-v2/UniswapV2Pair.sol,179:17,data.length > 0,true
+35,IfStatementMutation,src/contracts/uni-v2/UniswapV2Pair.sol,179:17,data.length > 0,false
+36,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,179:17,data.length > 0,0 > data.length
+37,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,179:34,"IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data)",assert(true)
+38,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,180:13,balance0 = IERC20(_token0).balanceOf(address(this)),assert(true)
+39,AssignmentMutation,src/contracts/uni-v2/UniswapV2Pair.sol,180:24,IERC20(_token0).balanceOf(address(this)),0
+40,AssignmentMutation,src/contracts/uni-v2/UniswapV2Pair.sol,180:24,IERC20(_token0).balanceOf(address(this)),1
+41,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,181:13,balance1 = IERC20(_token1).balanceOf(address(this)),assert(true)
+42,AssignmentMutation,src/contracts/uni-v2/UniswapV2Pair.sol,181:24,IERC20(_token1).balanceOf(address(this)),0
+43,AssignmentMutation,src/contracts/uni-v2/UniswapV2Pair.sol,181:24,IERC20(_token1).balanceOf(address(this)),1
+44,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:29,balance0 > _reserve0 - amount0Out,_reserve0 - amount0Out > balance0
+45,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:49, - ,+
+46,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:49, - ,*
+47,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:49, - ,/
+48,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:49, - ,%
+49,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:49, - ,**
+50,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:40,_reserve0 - amount0Out,amount0Out - _reserve0
+51,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:73, - ,+
+52,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:73, - ,*
+53,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:73, - ,/
+54,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:73, - ,%
+55,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:73, - ,**
+56,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:65,balance0 - (_reserve0 - amount0Out),(_reserve0 - amount0Out) - balance0
+57,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:86, - ,+
+58,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:86, - ,*
+59,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:86, - ,/
+60,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:86, - ,%
+61,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:86, - ,**
+62,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,183:77,_reserve0 - amount0Out,amount0Out - _reserve0
+63,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:29,balance1 > _reserve1 - amount1Out,_reserve1 - amount1Out > balance1
+64,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:49, - ,+
+65,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:49, - ,*
+66,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:49, - ,/
+67,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:49, - ,%
+68,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:49, - ,**
+69,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:40,_reserve1 - amount1Out,amount1Out - _reserve1
+70,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:73, - ,+
+71,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:73, - ,*
+72,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:73, - ,/
+73,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:73, - ,%
+74,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:73, - ,**
+75,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:65,balance1 - (_reserve1 - amount1Out),(_reserve1 - amount1Out) - balance1
+76,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:86, - ,+
+77,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:86, - ,*
+78,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:86, - ,/
+79,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:86, - ,%
+80,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:86, - ,**
+81,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,184:77,_reserve1 - amount1Out,amount1Out - _reserve1
+82,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,185:9,"require(amount0In > 0 || amount1In > 0, ""UniswapV2: INSUFFICIENT_INPUT_AMOUNT"")",assert(true)
+83,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,185:17,amount0In > 0 || amount1In > 0,true
+84,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,185:17,amount0In > 0 || amount1In > 0,false
+85,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,185:17,amount0In > 0,0 > amount0In
+86,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,185:34,amount1In > 0,0 > amount1In
+87,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:17,balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),true
+88,RequireMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:17,balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),false
+89,SwapArgumentsOperatorMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:17,balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),uint256(_reserve0).mul(_reserve1).mul(1000 ** 2) >= balance0Adjusted.mul(balance1Adjusted)
+90,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:101, ** ,+
+91,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:101, ** ,-
+92,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:101, ** ,*
+93,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:101, ** ,/
+94,BinaryOpMutation,src/contracts/uni-v2/UniswapV2Pair.sol,190:101, ** ,%
+95,DeleteExpressionMutation,src/contracts/uni-v2/UniswapV2Pair.sol,195:9,"_update(balance0, balance1, _reserve0, _reserve1)",assert(true)

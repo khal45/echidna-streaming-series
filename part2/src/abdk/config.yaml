@@ -1,0 +1,8 @@
+# Can set testMode to property or assertion mode depending on how you want to test the system's properties
+testMode: assertion
+testLimit: 50000
+seqLen: 100
+coverage: true
+corpusDir: corpus
+filterBlacklist: false
+filterFunctions: ["EchidnaTemplate.mul_test_associative(int128,int128,int128)"]

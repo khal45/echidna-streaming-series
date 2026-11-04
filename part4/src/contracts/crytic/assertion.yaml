@@ -1,0 +1,12 @@
+testMode: assertion
+coverage: true
+corpusDir: corpus/assertion
+seqLen: 150
+testLimit: 30000
+balanceContract: 100000000000000000000
+filterBlacklist: false
+filterFunctions:
+  [
+    "UniswapV2AssertionTest.testKNeverDecreasesDuringSwaps(uint256,uint256)",
+    "UniswapV2AssertionTest.testSwapDeliversIntendedOutputAndDecreasesPool(uint256,uint256)",
+  ]

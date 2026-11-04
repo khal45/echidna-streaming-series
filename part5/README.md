@@ -53,7 +53,7 @@ Note: Implementations for these will be implemented in Part 6. Due to to time li
 ## Running Code (for Part 5)
 
 ```
-rm -rf cache artifacts && echidna-test . --contract LibraryMathEchidna --corpus-dir  corpus --test-mode assertion --format text 
+echidna-test . --contract LibraryMathEchidna --corpus-dir  corpus --test-mode assertion --format text 
 ```
 
 **Configuration Options**:

@@ -1,16 +1,66 @@
-# Part 1: The Basics
+## Foundry
 
-## Exercises
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-Welcome to Part 1 of the Echidna streaming series. This part has two exercises:
+Foundry consists of:
 
-- [Exercise 1](./exercise1/README.md): Highlights Echidna's capabilities in finding arithmetic underflow / overflow .
-- [Exercise 2](./exercise2/README.md): Highlights Echidna's capabilities in finding flaws in access control.
+- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-## Slides
+## Documentation
 
-The slides for this part can be found [here](./Echidna_Part_1_Slides.pdf)
+https://book.getfoundry.sh/
 
-## Video Presentation
+## Usage
 
-The video presentation for this part can be found on [YouTube](https://www.youtube.com/watch?v=bhb_y80iF8w).
+### Build
+
+```shell
+$ forge build
+```
+
+### Test
+
+```shell
+$ forge test
+```
+
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```

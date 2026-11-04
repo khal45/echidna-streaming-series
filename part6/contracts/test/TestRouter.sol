@@ -4,7 +4,6 @@ pragma solidity 0.8.6;
 import "./TestBase.sol";
 import "../libraries/ReplicationMath.sol";
 import "../libraries/Units.sol";
-import "hardhat/console.sol";
 import "../interfaces/engine/IPrimitiveEngineErrors.sol";
 import "../libraries/ABDKMath64x64.sol";
 import "../libraries/CumulativeNormalDistribution.sol";

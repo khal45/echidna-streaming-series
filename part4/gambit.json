@@ -1,0 +1,9 @@
+{
+  "filename": "src/contracts/uni-v2/UniswapV2Pair.sol",
+  "sourceroot": ".",
+  "solc_allow_paths": [".", "src/contracts"],
+   "contract": "UniswapV2Pair",
+    "functions": [
+      "swap"
+    ]
+}

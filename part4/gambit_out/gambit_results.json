@@ -1,0 +1,762 @@
+[
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -13,7 +13,8 @@\n     using SafeMath for uint256;\n     using UQ112x112 for uint224;\n \n-    uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;\n+    /// BinaryOpMutation(`**` |==> `+`) of: `uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;`\n+    uint256 public constant MINIMUM_LIQUIDITY = 10+3;\n     bytes4 private constant SELECTOR = bytes4(keccak256(bytes(\"transfer(address,uint256)\")));\n \n     address public factory;\n",
+    "id": "1",
+    "name": "mutants/1/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -13,7 +13,8 @@\n     using SafeMath for uint256;\n     using UQ112x112 for uint224;\n \n-    uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;\n+    /// BinaryOpMutation(`**` |==> `-`) of: `uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;`\n+    uint256 public constant MINIMUM_LIQUIDITY = 10-3;\n     bytes4 private constant SELECTOR = bytes4(keccak256(bytes(\"transfer(address,uint256)\")));\n \n     address public factory;\n",
+    "id": "2",
+    "name": "mutants/2/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -13,7 +13,8 @@\n     using SafeMath for uint256;\n     using UQ112x112 for uint224;\n \n-    uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;\n+    /// BinaryOpMutation(`**` |==> `*`) of: `uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;`\n+    uint256 public constant MINIMUM_LIQUIDITY = 10*3;\n     bytes4 private constant SELECTOR = bytes4(keccak256(bytes(\"transfer(address,uint256)\")));\n \n     address public factory;\n",
+    "id": "3",
+    "name": "mutants/3/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -13,7 +13,8 @@\n     using SafeMath for uint256;\n     using UQ112x112 for uint224;\n \n-    uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;\n+    /// BinaryOpMutation(`**` |==> `%`) of: `uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;`\n+    uint256 public constant MINIMUM_LIQUIDITY = 10%3;\n     bytes4 private constant SELECTOR = bytes4(keccak256(bytes(\"transfer(address,uint256)\")));\n \n     address public factory;\n",
+    "id": "4",
+    "name": "mutants/4/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -13,7 +13,8 @@\n     using SafeMath for uint256;\n     using UQ112x112 for uint224;\n \n-    uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;\n+    /// SwapArgumentsOperatorMutation(`10 ** 3` |==> `3 ** 10`) of: `uint256 public constant MINIMUM_LIQUIDITY = 10 ** 3;`\n+    uint256 public constant MINIMUM_LIQUIDITY = 3 ** 10;\n     bytes4 private constant SELECTOR = bytes4(keccak256(bytes(\"transfer(address,uint256)\")));\n \n     address public factory;\n",
+    "id": "5",
+    "name": "mutants/5/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -30,7 +30,8 @@\n \n     uint256 private unlocked = 1;\n     modifier lock() {\n-        require(unlocked == 1, \"UniswapV2: LOCKED\");\n+        /// DeleteExpressionMutation(`require(unlocked == 1, \"UniswapV2: LOCKED\")` |==> `assert(true)`) of: `require(unlocked == 1, \"UniswapV2: LOCKED\");`\n+        assert(true);\n         unlocked = 0;\n         _;\n         unlocked = 1;\n",
+    "id": "6",
+    "name": "mutants/6/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -30,7 +30,8 @@\n \n     uint256 private unlocked = 1;\n     modifier lock() {\n-        require(unlocked == 1, \"UniswapV2: LOCKED\");\n+        /// RequireMutation(`unlocked == 1` |==> `true`) of: `require(unlocked == 1, \"UniswapV2: LOCKED\");`\n+        require(true, \"UniswapV2: LOCKED\");\n         unlocked = 0;\n         _;\n         unlocked = 1;\n",
+    "id": "7",
+    "name": "mutants/7/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -30,7 +30,8 @@\n \n     uint256 private unlocked = 1;\n     modifier lock() {\n-        require(unlocked == 1, \"UniswapV2: LOCKED\");\n+        /// RequireMutation(`unlocked == 1` |==> `false`) of: `require(unlocked == 1, \"UniswapV2: LOCKED\");`\n+        require(false, \"UniswapV2: LOCKED\");\n         unlocked = 0;\n         _;\n         unlocked = 1;\n",
+    "id": "8",
+    "name": "mutants/8/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -31,7 +31,8 @@\n     uint256 private unlocked = 1;\n     modifier lock() {\n         require(unlocked == 1, \"UniswapV2: LOCKED\");\n-        unlocked = 0;\n+        /// DeleteExpressionMutation(`unlocked = 0` |==> `assert(true)`) of: `unlocked = 0;`\n+        assert(true);\n         _;\n         unlocked = 1;\n     }\n",
+    "id": "9",
+    "name": "mutants/9/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "AssignmentMutation",
+    "diff": "--- original\n+++ mutant\n@@ -31,7 +31,8 @@\n     uint256 private unlocked = 1;\n     modifier lock() {\n         require(unlocked == 1, \"UniswapV2: LOCKED\");\n-        unlocked = 0;\n+        /// AssignmentMutation(`0` |==> `1`) of: `unlocked = 0;`\n+        unlocked = 1;\n         _;\n         unlocked = 1;\n     }\n",
+    "id": "10",
+    "name": "mutants/10/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -33,7 +33,8 @@\n         require(unlocked == 1, \"UniswapV2: LOCKED\");\n         unlocked = 0;\n         _;\n-        unlocked = 1;\n+        /// DeleteExpressionMutation(`unlocked = 1` |==> `assert(true)`) of: `unlocked = 1;`\n+        assert(true);\n     }\n \n     function getReserves() public view returns (uint112 _reserve0, uint112 _reserve1, uint32 _blockTimestampLast) {\n",
+    "id": "11",
+    "name": "mutants/11/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "AssignmentMutation",
+    "diff": "--- original\n+++ mutant\n@@ -33,7 +33,8 @@\n         require(unlocked == 1, \"UniswapV2: LOCKED\");\n         unlocked = 0;\n         _;\n-        unlocked = 1;\n+        /// AssignmentMutation(`1` |==> `0`) of: `unlocked = 1;`\n+        unlocked = 0;\n     }\n \n     function getReserves() public view returns (uint112 _reserve0, uint112 _reserve1, uint32 _blockTimestampLast) {\n",
+    "id": "12",
+    "name": "mutants/12/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -164,7 +164,8 @@\n         // how can I trick the swap function into thinking I sent amounts greater than 0 when in reality I sent 0\n         // is there any operation that rounds down here? Mutate it so that some operation rounds down\n         // require(x evaluates to true || y evaluates to true)\n-        require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n+        /// DeleteExpressionMutation(`require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\")` |==> `assert(true)`) of: `require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");`\n+        assert(true);\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n         require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n",
+    "id": "13",
+    "name": "mutants/13/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -164,7 +164,8 @@\n         // how can I trick the swap function into thinking I sent amounts greater than 0 when in reality I sent 0\n         // is there any operation that rounds down here? Mutate it so that some operation rounds down\n         // require(x evaluates to true || y evaluates to true)\n-        require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n+        /// RequireMutation(`amount0Out > 0 || amount1Out > 0` |==> `true`) of: `require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");`\n+        require(true, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n         require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n",
+    "id": "14",
+    "name": "mutants/14/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -164,7 +164,8 @@\n         // how can I trick the swap function into thinking I sent amounts greater than 0 when in reality I sent 0\n         // is there any operation that rounds down here? Mutate it so that some operation rounds down\n         // require(x evaluates to true || y evaluates to true)\n-        require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n+        /// RequireMutation(`amount0Out > 0 || amount1Out > 0` |==> `false`) of: `require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");`\n+        require(false, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n         require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n",
+    "id": "15",
+    "name": "mutants/15/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -164,7 +164,8 @@\n         // how can I trick the swap function into thinking I sent amounts greater than 0 when in reality I sent 0\n         // is there any operation that rounds down here? Mutate it so that some operation rounds down\n         // require(x evaluates to true || y evaluates to true)\n-        require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n+        /// SwapArgumentsOperatorMutation(`amount0Out > 0` |==> `0 > amount0Out`) of: `require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");`\n+        require(0 > amount0Out || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n         require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n",
+    "id": "16",
+    "name": "mutants/16/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -164,7 +164,8 @@\n         // how can I trick the swap function into thinking I sent amounts greater than 0 when in reality I sent 0\n         // is there any operation that rounds down here? Mutate it so that some operation rounds down\n         // require(x evaluates to true || y evaluates to true)\n-        require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n+        /// SwapArgumentsOperatorMutation(`amount1Out > 0` |==> `0 > amount1Out`) of: `require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");`\n+        require(amount0Out > 0 || 0 > amount1Out, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n         require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n",
+    "id": "17",
+    "name": "mutants/17/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -166,7 +166,8 @@\n         // require(x evaluates to true || y evaluates to true)\n         require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n-        require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n+        /// DeleteExpressionMutation(`require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\")` |==> `assert(true)`) of: `require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");`\n+        assert(true);\n \n         uint256 balance0;\n         uint256 balance1;\n",
+    "id": "18",
+    "name": "mutants/18/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -166,7 +166,8 @@\n         // require(x evaluates to true || y evaluates to true)\n         require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n-        require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n+        /// RequireMutation(`amount0Out < _reserve0 && amount1Out < _reserve1` |==> `true`) of: `require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");`\n+        require(true, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n         uint256 balance0;\n         uint256 balance1;\n",
+    "id": "19",
+    "name": "mutants/19/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -166,7 +166,8 @@\n         // require(x evaluates to true || y evaluates to true)\n         require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n-        require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n+        /// RequireMutation(`amount0Out < _reserve0 && amount1Out < _reserve1` |==> `false`) of: `require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");`\n+        require(false, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n         uint256 balance0;\n         uint256 balance1;\n",
+    "id": "20",
+    "name": "mutants/20/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -166,7 +166,8 @@\n         // require(x evaluates to true || y evaluates to true)\n         require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n-        require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n+        /// SwapArgumentsOperatorMutation(`amount0Out < _reserve0` |==> `_reserve0 < amount0Out`) of: `require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");`\n+        require(_reserve0 < amount0Out && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n         uint256 balance0;\n         uint256 balance1;\n",
+    "id": "21",
+    "name": "mutants/21/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -166,7 +166,8 @@\n         // require(x evaluates to true || y evaluates to true)\n         require(amount0Out > 0 || amount1Out > 0, \"UniswapV2: INSUFFICIENT_OUTPUT_AMOUNT\");\n         (uint112 _reserve0, uint112 _reserve1,) = getReserves(); // gas savings\n-        require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n+        /// SwapArgumentsOperatorMutation(`amount1Out < _reserve1` |==> `_reserve1 < amount1Out`) of: `require(amount0Out < _reserve0 && amount1Out < _reserve1, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");`\n+        require(amount0Out < _reserve0 && _reserve1 < amount1Out, \"UniswapV2: INSUFFICIENT_LIQUIDITY\");\n \n         uint256 balance0;\n         uint256 balance1;\n",
+    "id": "22",
+    "name": "mutants/22/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -173,7 +173,8 @@\n         { // scope for _token{0,1}, avoids stack too deep errors\n             address _token0 = token0;\n             address _token1 = token1;\n-            require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n+            /// DeleteExpressionMutation(`require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\")` |==> `assert(true)`) of: `require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");`\n+            assert(true);\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n",
+    "id": "23",
+    "name": "mutants/23/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -173,7 +173,8 @@\n         { // scope for _token{0,1}, avoids stack too deep errors\n             address _token0 = token0;\n             address _token1 = token1;\n-            require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n+            /// RequireMutation(`to != _token0 && to != _token1` |==> `true`) of: `require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");`\n+            require(true, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n",
+    "id": "24",
+    "name": "mutants/24/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -173,7 +173,8 @@\n         { // scope for _token{0,1}, avoids stack too deep errors\n             address _token0 = token0;\n             address _token1 = token1;\n-            require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n+            /// RequireMutation(`to != _token0 && to != _token1` |==> `false`) of: `require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");`\n+            require(false, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n",
+    "id": "25",
+    "name": "mutants/25/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "IfStatementMutation",
+    "diff": "--- original\n+++ mutant\n@@ -174,7 +174,8 @@\n             address _token0 = token0;\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n-            if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n+            /// IfStatementMutation(`amount0Out > 0` |==> `true`) of: `if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens`\n+            if (true) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n",
+    "id": "26",
+    "name": "mutants/26/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "IfStatementMutation",
+    "diff": "--- original\n+++ mutant\n@@ -174,7 +174,8 @@\n             address _token0 = token0;\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n-            if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n+            /// IfStatementMutation(`amount0Out > 0` |==> `false`) of: `if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens`\n+            if (false) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n",
+    "id": "27",
+    "name": "mutants/27/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -174,7 +174,8 @@\n             address _token0 = token0;\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n-            if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n+            /// SwapArgumentsOperatorMutation(`amount0Out > 0` |==> `0 > amount0Out`) of: `if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens`\n+            if (0 > amount0Out) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n",
+    "id": "28",
+    "name": "mutants/28/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -174,7 +174,8 @@\n             address _token0 = token0;\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n-            if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n+            /// DeleteExpressionMutation(`_safeTransfer(_token0, to, amount0Out)` |==> `assert(true)`) of: `if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens`\n+            if (amount0Out > 0) assert(true); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n",
+    "id": "29",
+    "name": "mutants/29/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "IfStatementMutation",
+    "diff": "--- original\n+++ mutant\n@@ -175,7 +175,8 @@\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n-            if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n+            /// IfStatementMutation(`amount1Out > 0` |==> `true`) of: `if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens`\n+            if (true) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n",
+    "id": "30",
+    "name": "mutants/30/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "IfStatementMutation",
+    "diff": "--- original\n+++ mutant\n@@ -175,7 +175,8 @@\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n-            if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n+            /// IfStatementMutation(`amount1Out > 0` |==> `false`) of: `if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens`\n+            if (false) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n",
+    "id": "31",
+    "name": "mutants/31/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -175,7 +175,8 @@\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n-            if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n+            /// SwapArgumentsOperatorMutation(`amount1Out > 0` |==> `0 > amount1Out`) of: `if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens`\n+            if (0 > amount1Out) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n",
+    "id": "32",
+    "name": "mutants/32/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -175,7 +175,8 @@\n             address _token1 = token1;\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n-            if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n+            /// DeleteExpressionMutation(`_safeTransfer(_token1, to, amount1Out)` |==> `assert(true)`) of: `if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens`\n+            if (amount1Out > 0) assert(true); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n",
+    "id": "33",
+    "name": "mutants/33/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "IfStatementMutation",
+    "diff": "--- original\n+++ mutant\n@@ -176,7 +176,8 @@\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n-            if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n+            /// IfStatementMutation(`data.length > 0` |==> `true`) of: `if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);`\n+            if (true) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n",
+    "id": "34",
+    "name": "mutants/34/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "IfStatementMutation",
+    "diff": "--- original\n+++ mutant\n@@ -176,7 +176,8 @@\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n-            if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n+            /// IfStatementMutation(`data.length > 0` |==> `false`) of: `if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);`\n+            if (false) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n",
+    "id": "35",
+    "name": "mutants/35/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -176,7 +176,8 @@\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n-            if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n+            /// SwapArgumentsOperatorMutation(`data.length > 0` |==> `0 > data.length`) of: `if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);`\n+            if (0 > data.length) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n",
+    "id": "36",
+    "name": "mutants/36/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -176,7 +176,8 @@\n             require(to != _token0 && to != _token1, \"UniswapV2: INVALID_TO\");\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n-            if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n+            /// DeleteExpressionMutation(`IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data)` |==> `assert(true)`) of: `if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);`\n+            if (data.length > 0) assert(true);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n",
+    "id": "37",
+    "name": "mutants/37/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -177,7 +177,8 @@\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n-            balance0 = IERC20(_token0).balanceOf(address(this));\n+            /// DeleteExpressionMutation(`balance0 = IERC20(_token0).balanceOf(address(this))` |==> `assert(true)`) of: `balance0 = IERC20(_token0).balanceOf(address(this));`\n+            assert(true);\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n",
+    "id": "38",
+    "name": "mutants/38/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "AssignmentMutation",
+    "diff": "--- original\n+++ mutant\n@@ -177,7 +177,8 @@\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n-            balance0 = IERC20(_token0).balanceOf(address(this));\n+            /// AssignmentMutation(`IERC20(_token0).balanceOf(address(this))` |==> `0`) of: `balance0 = IERC20(_token0).balanceOf(address(this));`\n+            balance0 = 0;\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n",
+    "id": "39",
+    "name": "mutants/39/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "AssignmentMutation",
+    "diff": "--- original\n+++ mutant\n@@ -177,7 +177,8 @@\n             if (amount0Out > 0) _safeTransfer(_token0, to, amount0Out); // optimistically transfer tokens\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n-            balance0 = IERC20(_token0).balanceOf(address(this));\n+            /// AssignmentMutation(`IERC20(_token0).balanceOf(address(this))` |==> `1`) of: `balance0 = IERC20(_token0).balanceOf(address(this));`\n+            balance0 = 1;\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n",
+    "id": "40",
+    "name": "mutants/40/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -178,7 +178,8 @@\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n-            balance1 = IERC20(_token1).balanceOf(address(this));\n+            /// DeleteExpressionMutation(`balance1 = IERC20(_token1).balanceOf(address(this))` |==> `assert(true)`) of: `balance1 = IERC20(_token1).balanceOf(address(this));`\n+            assert(true);\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n",
+    "id": "41",
+    "name": "mutants/41/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "AssignmentMutation",
+    "diff": "--- original\n+++ mutant\n@@ -178,7 +178,8 @@\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n-            balance1 = IERC20(_token1).balanceOf(address(this));\n+            /// AssignmentMutation(`IERC20(_token1).balanceOf(address(this))` |==> `0`) of: `balance1 = IERC20(_token1).balanceOf(address(this));`\n+            balance1 = 0;\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n",
+    "id": "42",
+    "name": "mutants/42/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "AssignmentMutation",
+    "diff": "--- original\n+++ mutant\n@@ -178,7 +178,8 @@\n             if (amount1Out > 0) _safeTransfer(_token1, to, amount1Out); // optimistically transfer tokens\n             if (data.length > 0) IUniswapV2Callee(to).uniswapV2Call(msg.sender, amount0Out, amount1Out, data);\n             balance0 = IERC20(_token0).balanceOf(address(this));\n-            balance1 = IERC20(_token1).balanceOf(address(this));\n+            /// AssignmentMutation(`IERC20(_token1).balanceOf(address(this))` |==> `1`) of: `balance1 = IERC20(_token1).balanceOf(address(this));`\n+            balance1 = 1;\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n",
+    "id": "43",
+    "name": "mutants/43/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`balance0 > _reserve0 - amount0Out` |==> `_reserve0 - amount0Out > balance0`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = _reserve0 - amount0Out > balance0 ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "44",
+    "name": "mutants/44/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `+`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0+amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "45",
+    "name": "mutants/45/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `*`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0*amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "46",
+    "name": "mutants/46/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `/`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0/amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "47",
+    "name": "mutants/47/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `%`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0%amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "48",
+    "name": "mutants/48/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `**`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0**amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "49",
+    "name": "mutants/49/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`_reserve0 - amount0Out` |==> `amount0Out - _reserve0`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > amount0Out - _reserve0 ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "50",
+    "name": "mutants/50/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `+`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0+(_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "51",
+    "name": "mutants/51/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `*`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0*(_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "52",
+    "name": "mutants/52/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `/`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0/(_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "53",
+    "name": "mutants/53/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `%`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0%(_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "54",
+    "name": "mutants/54/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `**`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0**(_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "55",
+    "name": "mutants/55/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`balance0 - (_reserve0 - amount0Out)` |==> `(_reserve0 - amount0Out) - balance0`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? (_reserve0 - amount0Out) - balance0 : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "56",
+    "name": "mutants/56/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `+`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0+amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "57",
+    "name": "mutants/57/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `*`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0*amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "58",
+    "name": "mutants/58/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `/`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0/amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "59",
+    "name": "mutants/59/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `%`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0%amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "60",
+    "name": "mutants/60/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `**`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0**amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "61",
+    "name": "mutants/61/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -180,7 +180,8 @@\n             balance0 = IERC20(_token0).balanceOf(address(this));\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n-        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`_reserve0 - amount0Out` |==> `amount0Out - _reserve0`) of: `uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;`\n+        uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (amount0Out - _reserve0) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n",
+    "id": "62",
+    "name": "mutants/62/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`balance1 > _reserve1 - amount1Out` |==> `_reserve1 - amount1Out > balance1`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = _reserve1 - amount1Out > balance1 ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "63",
+    "name": "mutants/63/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `+`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1+amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "64",
+    "name": "mutants/64/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `*`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1*amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "65",
+    "name": "mutants/65/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `/`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1/amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "66",
+    "name": "mutants/66/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `%`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1%amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "67",
+    "name": "mutants/67/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `**`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1**amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "68",
+    "name": "mutants/68/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`_reserve1 - amount1Out` |==> `amount1Out - _reserve1`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > amount1Out - _reserve1 ? balance1 - (_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "69",
+    "name": "mutants/69/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `+`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1+(_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "70",
+    "name": "mutants/70/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `*`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1*(_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "71",
+    "name": "mutants/71/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `/`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1/(_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "72",
+    "name": "mutants/72/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `%`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1%(_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "73",
+    "name": "mutants/73/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `**`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1**(_reserve1 - amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "74",
+    "name": "mutants/74/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`balance1 - (_reserve1 - amount1Out)` |==> `(_reserve1 - amount1Out) - balance1`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? (_reserve1 - amount1Out) - balance1 : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "75",
+    "name": "mutants/75/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `+`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1+amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "76",
+    "name": "mutants/76/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `*`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1*amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "77",
+    "name": "mutants/77/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `/`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1/amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "78",
+    "name": "mutants/78/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `%`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1%amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "79",
+    "name": "mutants/79/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// BinaryOpMutation(`-` |==> `**`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1**amount1Out) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "80",
+    "name": "mutants/80/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -181,7 +181,8 @@\n             balance1 = IERC20(_token1).balanceOf(address(this));\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n-        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n+        /// SwapArgumentsOperatorMutation(`_reserve1 - amount1Out` |==> `amount1Out - _reserve1`) of: `uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;`\n+        uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (amount1Out - _reserve1) : 0;\n         require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n",
+    "id": "81",
+    "name": "mutants/81/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -182,7 +182,8 @@\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n-        require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n+        /// DeleteExpressionMutation(`require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\")` |==> `assert(true)`) of: `require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");`\n+        assert(true);\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n",
+    "id": "82",
+    "name": "mutants/82/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -182,7 +182,8 @@\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n-        require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n+        /// RequireMutation(`amount0In > 0 || amount1In > 0` |==> `true`) of: `require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");`\n+        require(true, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n",
+    "id": "83",
+    "name": "mutants/83/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -182,7 +182,8 @@\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n-        require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n+        /// RequireMutation(`amount0In > 0 || amount1In > 0` |==> `false`) of: `require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");`\n+        require(false, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n",
+    "id": "84",
+    "name": "mutants/84/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -182,7 +182,8 @@\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n-        require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n+        /// SwapArgumentsOperatorMutation(`amount0In > 0` |==> `0 > amount0In`) of: `require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");`\n+        require(0 > amount0In || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n",
+    "id": "85",
+    "name": "mutants/85/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -182,7 +182,8 @@\n         }\n         uint256 amount0In = balance0 > _reserve0 - amount0Out ? balance0 - (_reserve0 - amount0Out) : 0;\n         uint256 amount1In = balance1 > _reserve1 - amount1Out ? balance1 - (_reserve1 - amount1Out) : 0;\n-        require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n+        /// SwapArgumentsOperatorMutation(`amount1In > 0` |==> `0 > amount1In`) of: `require(amount0In > 0 || amount1In > 0, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");`\n+        require(amount0In > 0 || 0 > amount1In, \"UniswapV2: INSUFFICIENT_INPUT_AMOUNT\");\n         { // scope for reserve{0,1}Adjusted, avoids stack too deep errors\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n",
+    "id": "86",
+    "name": "mutants/86/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// RequireMutation(`balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2)` |==> `true`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                true,\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "87",
+    "name": "mutants/87/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "RequireMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// RequireMutation(`balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2)` |==> `false`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                false,\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "88",
+    "name": "mutants/88/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "SwapArgumentsOperatorMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// SwapArgumentsOperatorMutation(`balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2)` |==> `uint256(_reserve0).mul(_reserve1).mul(1000 ** 2) >= balance0Adjusted.mul(balance1Adjusted)`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                uint256(_reserve0).mul(_reserve1).mul(1000 ** 2) >= balance0Adjusted.mul(balance1Adjusted),\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "89",
+    "name": "mutants/89/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// BinaryOpMutation(`**` |==> `+`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000+2),\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "90",
+    "name": "mutants/90/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// BinaryOpMutation(`**` |==> `-`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000-2),\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "91",
+    "name": "mutants/91/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// BinaryOpMutation(`**` |==> `*`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000*2),\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "92",
+    "name": "mutants/92/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// BinaryOpMutation(`**` |==> `/`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000/2),\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "93",
+    "name": "mutants/93/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "BinaryOpMutation",
+    "diff": "--- original\n+++ mutant\n@@ -187,7 +187,8 @@\n             uint256 balance0Adjusted = balance0.mul(1000).sub(amount0In.mul(3));\n             uint256 balance1Adjusted = balance1.mul(1000).sub(amount1In.mul(3));\n             require(\n-                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),\n+                /// BinaryOpMutation(`**` |==> `%`) of: `balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000 ** 2),`\n+                balance0Adjusted.mul(balance1Adjusted) >= uint256(_reserve0).mul(_reserve1).mul(1000%2),\n                 \"UniswapV2: K\"\n             );\n         }\n",
+    "id": "94",
+    "name": "mutants/94/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  },
+  {
+    "description": "DeleteExpressionMutation",
+    "diff": "--- original\n+++ mutant\n@@ -192,7 +192,8 @@\n             );\n         }\n \n-        _update(balance0, balance1, _reserve0, _reserve1);\n+        /// DeleteExpressionMutation(`_update(balance0, balance1, _reserve0, _reserve1)` |==> `assert(true)`) of: `_update(balance0, balance1, _reserve0, _reserve1);`\n+        assert(true);\n         emit Swap(msg.sender, amount0In, amount1In, amount0Out, amount1Out, to);\n     }\n \n",
+    "id": "95",
+    "name": "mutants/95/src/contracts/uni-v2/UniswapV2Pair.sol",
+    "original": "src/contracts/uni-v2/UniswapV2Pair.sol",
+    "sourceroot": "/home/khal45/Desktop/web3_security_stuff/echidna-streaming-series/part4"
+  }
+]

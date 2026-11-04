@@ -17,13 +17,13 @@ The video presentation for this part can be found on [YouTube](https://www.youtu
 
 ## Prerequisites 
 
-Because Uniswap V2 is a Hardhat project, before being able to fuzz it with Echidna, you have to install its dependencies.
+This is a Foundry project. Install [Foundry](https://getfoundry.sh) and the Echidna fuzzer first.
 
 Run the following commands:
 
 ```
 git clone git@github.com:crytic/echidna-streaming-series
 cd part4
-npm install
+forge build
 echidna-test . --contract EchidnaUniV2Tester --config contracts/crytic/config.yaml
 ```

@@ -1,24 +1,66 @@
-# Part 2: Fuzzing arithmetics and functions
+## Foundry
 
-## Sections
+**Foundry is a blazing fast, portable and modular toolkit for Ethereum application development written in Rust.**
 
-Welcome to Part 2 of the Echidna streaming series. This part has two sections:
+Foundry consists of:
 
-- [ABDKMath](./abdk/Template.sol): The ABDKMath section highlights how to write simple function-level properties for arithmetic operations.
-- [Staker](./staker/contracts/Template.sol): The Staker section highlights the use of an external testing methodology to test a target system. Additionally, it highlights how to use coverage reports to debug your fuzz tests.
+- **Forge**: Ethereum testing framework (like Truffle, Hardhat and DappTools).
+- **Cast**: Swiss army knife for interacting with EVM smart contracts, sending transactions and getting chain data.
+- **Anvil**: Local Ethereum node, akin to Ganache, Hardhat Network.
+- **Chisel**: Fast, utilitarian, and verbose solidity REPL.
 
-## Slides
+## Documentation
 
-The slides for this part can be found [here](./Echidna_Part_2_Slides.pdf).
+https://book.getfoundry.sh/
 
-## Video Presentation
+## Usage
 
-The video presentation for this part can be found on [YouTube](https://www.youtube.com/watch?v=9P7sqE6hILM&t=1s).
+### Build
 
-## Prerequisites (Staker)
+```shell
+$ forge build
+```
 
-Because Staker is a Hardhat project, before being able to fuzz it with Echidna, you have to install its dependencies.
+### Test
 
-Make sure you have npm installed. 
+```shell
+$ forge test
+```
 
-Once you are in the Staker directory run `npm install`. 
+### Format
+
+```shell
+$ forge fmt
+```
+
+### Gas Snapshots
+
+```shell
+$ forge snapshot
+```
+
+### Anvil
+
+```shell
+$ anvil
+```
+
+### Deploy
+
+```shell
+$ forge script script/Counter.s.sol:CounterScript --rpc-url <your_rpc_url> --private-key <your_private_key>
+```
+
+### Cast
+
+```shell
+$ cast <subcommand>
+```
+
+### Help
+
+```shell
+$ forge --help
+$ anvil --help
+$ cast --help
+```

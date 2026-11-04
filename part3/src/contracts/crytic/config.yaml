@@ -1,0 +1,8 @@
+testMode: assertion
+corpusDir: corpus
+seqLen: 25
+testLimit: 10000
+# seqLen: 150
+# testLimit: 150000
+# filterBlacklist: false
+# filterFunctions: ["EchidnaTest.testUserGetsCorrectAmountAfterSwap(uint256)"]

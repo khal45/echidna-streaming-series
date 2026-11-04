@@ -1,0 +1,5 @@
+testMode: assertion
+testLimit: 50000
+seqLen: 100
+coverage: true
+corpusDir: src/staker/corpus

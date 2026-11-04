@@ -1,0 +1,5 @@
+testMode: property
+corpusDir: corpus/property
+seqLen: 25
+testLimit: 10000
+balanceContract: 100000000000000000000

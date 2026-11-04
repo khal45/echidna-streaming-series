@@ -1,0 +1,207 @@
+{
+  "absolutePath": "src/contracts/interfaces/IUniswapV2Callee.sol",
+  "exportedSymbols":
+  {
+    "IUniswapV2Callee":
+    [
+      1167
+    ]
+  },
+  "id": 1168,
+  "license": null,
+  "nodeType": "SourceUnit",
+  "nodes":
+  [
+    {
+      "id": 1155,
+      "literals":
+      [
+        "solidity",
+        ">=",
+        "0.5",
+        ".0"
+      ],
+      "nodeType": "PragmaDirective",
+      "src": "0:24:1"
+    },
+    {
+      "abstract": false,
+      "baseContracts": [],
+      "contractDependencies": [],
+      "contractKind": "interface",
+      "documentation": null,
+      "fullyImplemented": false,
+      "id": 1167,
+      "linearizedBaseContracts":
+      [
+        1167
+      ],
+      "name": "IUniswapV2Callee",
+      "nodeType": "ContractDefinition",
+      "nodes":
+      [
+        {
+          "body": null,
+          "documentation": null,
+          "functionSelector": "10d1e85c",
+          "id": 1166,
+          "implemented": false,
+          "kind": "function",
+          "modifiers": [],
+          "name": "uniswapV2Call",
+          "nodeType": "FunctionDefinition",
+          "overrides": null,
+          "parameters":
+          {
+            "id": 1164,
+            "nodeType": "ParameterList",
+            "parameters":
+            [
+              {
+                "constant": false,
+                "id": 1157,
+                "mutability": "mutable",
+                "name": "sender",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1166,
+                "src": "82:14:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions":
+                {
+                  "typeIdentifier": "t_address",
+                  "typeString": "address"
+                },
+                "typeName":
+                {
+                  "id": 1156,
+                  "name": "address",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "82:7:1",
+                  "stateMutability": "nonpayable",
+                  "typeDescriptions":
+                  {
+                    "typeIdentifier": "t_address",
+                    "typeString": "address"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1159,
+                "mutability": "mutable",
+                "name": "amount0",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1166,
+                "src": "98:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions":
+                {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName":
+                {
+                  "id": 1158,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "98:4:1",
+                  "typeDescriptions":
+                  {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1161,
+                "mutability": "mutable",
+                "name": "amount1",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1166,
+                "src": "112:12:1",
+                "stateVariable": false,
+                "storageLocation": "default",
+                "typeDescriptions":
+                {
+                  "typeIdentifier": "t_uint256",
+                  "typeString": "uint256"
+                },
+                "typeName":
+                {
+                  "id": 1160,
+                  "name": "uint",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "112:4:1",
+                  "typeDescriptions":
+                  {
+                    "typeIdentifier": "t_uint256",
+                    "typeString": "uint256"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              },
+              {
+                "constant": false,
+                "id": 1163,
+                "mutability": "mutable",
+                "name": "data",
+                "nodeType": "VariableDeclaration",
+                "overrides": null,
+                "scope": 1166,
+                "src": "126:19:1",
+                "stateVariable": false,
+                "storageLocation": "calldata",
+                "typeDescriptions":
+                {
+                  "typeIdentifier": "t_bytes_calldata_ptr",
+                  "typeString": "bytes"
+                },
+                "typeName":
+                {
+                  "id": 1162,
+                  "name": "bytes",
+                  "nodeType": "ElementaryTypeName",
+                  "src": "126:5:1",
+                  "typeDescriptions":
+                  {
+                    "typeIdentifier": "t_bytes_storage_ptr",
+                    "typeString": "bytes"
+                  }
+                },
+                "value": null,
+                "visibility": "internal"
+              }
+            ],
+            "src": "81:65:1"
+          },
+          "returnParameters":
+          {
+            "id": 1165,
+            "nodeType": "ParameterList",
+            "parameters": [],
+            "src": "155:0:1"
+          },
+          "scope": 1167,
+          "src": "59:97:1",
+          "stateMutability": "nonpayable",
+          "virtual": false,
+          "visibility": "external"
+        }
+      ],
+      "scope": 1168,
+      "src": "26:132:1"
+    }
+  ],
+  "src": "0:159:1"
+}
